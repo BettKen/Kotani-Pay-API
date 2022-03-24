@@ -6,7 +6,7 @@ describe('Airtel Disbursement API', () => {
   it('should work with no error ', () => {});
 
   it('should throw an Error if Airtel API is down ', () => {
-      nock("").post("")
+    nock('https://openapi.airtel.africa/').post('/standard/v1/disbursements/');
   });
 
   it('should return an wrong country error', () => {});

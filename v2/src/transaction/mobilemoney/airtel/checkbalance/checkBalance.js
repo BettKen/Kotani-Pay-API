@@ -2,11 +2,11 @@ const { countries, getAirtelClient } = require('../util');
 
 const getBalanceUrl = '/standard/v1/users/balance';
 
-export const airtelCheckBalance = async (country) => {
+const airtelCheckBalance = async (country) => {
   const countryInfo = countries[country];
 
   if (!countryInfo) {
-    throw new Error('');
+    throw new Error('Issue wih the country entered ');
   }
 
   const headers = {
@@ -22,6 +22,7 @@ export const airtelCheckBalance = async (country) => {
   }
 };
 
-export default {
+module.exports = {
   airtelCheckBalance,
+  getBalanceUrl,
 };

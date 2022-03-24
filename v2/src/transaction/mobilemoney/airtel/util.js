@@ -1,6 +1,8 @@
 const axios = require('axios');
 
-export const countries = {
+const baseUrl = 'https://openapi.airtel.africa/';
+
+const countries = {
   UGANDA: {
     cc: 'UG',
     currency: 'UGX',
@@ -15,9 +17,9 @@ export const countries = {
   },
 };
 
-export const getOathToken = async () => axios.post('https://openapi.airtel.africa/auth/oauth2/token');
+const getOathToken = async () => axios.post('https://openapi.airtel.africa/auth/oauth2/token');
 
-export const verifyAmount = (amount) => {
+const verifyAmount = (amount) => {
   // Any verification for Airtel amount goess here
   if (Number.isSafeInteger(amount) && amount <= 0) {
     return amount;
@@ -25,12 +27,12 @@ export const verifyAmount = (amount) => {
   throw new Error('Something is up with the amount');
 };
 
-export const getAirtelClient = async () => {
+const getAirtelClient = async () => {
   try {
     const { accessToken } = getOathToken();
 
     return await axios.create({
-      baseURL: 'https://openapi.airtel.africa/',
+      baseURL: baseUrl,
       timeout: 1000,
       headers: {
         Accept: '*/*',
@@ -42,14 +44,14 @@ export const getAirtelClient = async () => {
   }
 };
 
-export const generatepin = async () => {
-  //Todo: encrpyt
-  return 'KYJExln8rZwb14G1K5UE5YF/lD7KheNUM171MUEG3/f/QD8nmNKRsa44'
-}
+const generatepin = async () =>
+  // Todo: encrpyt
+  'KYJExln8rZwb14G1K5UE5YF/lD7KheNUM171MUEG3/f/QD8nmNKRsa44';
 
-export default {
+module.exports = {
   countries,
   getOathToken,
   verifyAmount,
-  generatepin
+  generatepin,
+  getAirtelClient,
 };

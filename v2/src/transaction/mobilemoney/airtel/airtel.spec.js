@@ -1,4 +1,10 @@
-describe('Airtel function', () => {
+describe('Airtel functions', () => {
+
+  it('should generate correct pin ', () => {
+
+  });
+
+
   it('should generate correct pin ', () => {
 
   });

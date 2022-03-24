@@ -5,11 +5,11 @@ const { verifyAmount } = require('../util');
 
 const disburseUrl = '/standard/v1/disbursements/';
 
-export const airtelDisburse = async (country, amount, msisdn) => {
+const airtelDisburse = async (country, amount, msisdn) => {
   const countryInfo = countries[country];
 
   if (!countryInfo) {
-    throw new Error(' country errors');
+    throw new Error('country errors');
   }
 
   const verifiredAmount = verifyAmount(amount);
@@ -46,4 +46,7 @@ export const airtelDisburse = async (country, amount, msisdn) => {
   }
 };
 
-export default { airtelDisburse };
+module.exports = {
+  disburseUrl,
+  airtelDisburse,
+};

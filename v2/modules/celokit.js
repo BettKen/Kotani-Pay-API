@@ -8,7 +8,7 @@ const kit = contractkit.newKit(NODE_URL);
 kit.setFeeCurrency(contractkit.CeloContract.StableToken);
 const web3 = kit.web3;
 
-const impactUBI = require('../ABIs/ImpactUBI.json');
+const impactUBI = require('../config/ABI/ImpactUBI.json');
 
 const ethers = require('ethers');
 const provider = new ethers.providers.JsonRpcProvider(NODE_URL);
